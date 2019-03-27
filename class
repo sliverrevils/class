@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace class_2
+{
+    class Program
+    {
+        class BankAccaunt
+        {
+            private double balance = 0; // скрытая переменная
+            public void Deposit(double n)
+            {
+                balance += n;
+            }
+            public void WithDraw(double n)
+            {
+                if (n <= balance)
+                {
+                    balance -= n;
+                }
+                else
+                {
+                    Console.WriteLine($"You have only {balance}");
+                }
+                
+            }
+            public double GetBalance()
+            {
+                return balance; 
+            }
+
+            public BankAccaunt( double z)    //конструктор класса c изначальным значением
+            {
+                balance = z;
+                Console.WriteLine($"Hi man, your balance is {balance}");
+            }
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            BankAccaunt sliver = new BankAccaunt(500); // создание объекта класса со значением
+            do
+            {
+                
+                string a = Console.ReadLine();
+                if (a == "+")
+                {
+                    double x = int.Parse(Console.ReadLine());
+                    sliver.Deposit(x);
+                    Console.WriteLine($"Now you have {sliver.GetBalance()}");
+                }
+                else
+                {
+                    double x = int.Parse(Console.ReadLine());
+                    sliver.WithDraw(x);
+                    Console.WriteLine($"Now you have {sliver.GetBalance()}");
+
+                }
+            } while (true);
+
+
+
+
+
+        }
+    }
+}
