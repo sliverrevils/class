@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        
+
+        static int GetCard()          //    <------ Хотел создать метод который возвращает случайное число, в итоге он возвращает одно и тоже случайное число
+        {                                   // не могу понять, почем так ? 
+           Random rand = new Random();
+            int x = rand.Next(1, 56);
+            return x;
+        }
+       
+
+        static void Main(string[] args)
+        {
+            
+            int arrcount = Convert.ToInt32(Console.ReadLine());
+            //Random rand = new Random(); //создаем экземпляр класса генерации рандомных числ
+            int[] array = new int[arrcount]; // создаем массив
+
+            //array[5] = 33;
+            for(int i = 0;i<array.Count(); i++) // создаем цикл для заполнения массива
+            {
+                array[i] = GetCard();
+                Console.WriteLine("{0} - {1}", i, array[i]);
+                //array[i] = rand.Next(1, arrcount); // присваеваем случайное число элементу массива от 1 до указанного числа
+               // Console.WriteLine("{0} = {1}",i,array[i]); //выводим на экран значение ячейки массива
+            }
+            
+           /* foreach(int item in array)
+            {
+                Console.WriteLine(item);
+                //array[item] = rand.Next(1, 56);
+                //Console.WriteLine("{0} = {1}", item, array);
+            }
+            */
+
+
+        }
+    }
+}
